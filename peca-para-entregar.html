@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Peça para Entregar - Lanchonete</title>
+  <link rel="stylesheet" href="peca-para-entregar.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/5.0.8/inputmask.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>🍟 Peça para Entregar</h1>
+    <p>Escolha seu lanche favorito e receba em casa!</p>
+
+    <div class="menu">
+      <h2>Cardápio</h2>
+      <ul>
+        <li><input type="radio" name="lanche" value="X-Burger" /> X-Burger - R$12,00</li>
+        <li><input type="radio" name="lanche" value="X-Salada" /> X-Salada - R$14,00</li>
+        <li><input type="radio" name="lanche" value="Mini Pizza Frango" /> Mini Pizza Frango - R$12,00</li>
+      </ul>
+      <span class="error-message" id="lanche-erro"></span>
+    </div>
+
+    <div class="form">
+      <h2>Dados para Entrega</h2>
+
+      <div class="campo">
+        <input type="text" id="nome" placeholder="Seu nome" />
+        <span class="error-message" id="nome-erro"></span>
+      </div>
+
+      <div class="campo">
+        <input type="text" id="telefone" placeholder="Telefone para contato" />
+        <span class="error-message" id="telefone-erro"></span>
+      </div>
+
+      <div class="campo">
+        <input type="text" id="rua" placeholder="Rua" />
+        <span class="error-message" id="rua-erro"></span>
+      </div>
+
+      <div class="campo">
+        <input type="text" id="numero" placeholder="Número" />
+        <span class="error-message" id="numero-erro"></span>
+      </div>
+
+      <div class="campo">
+        <input type="text" id="bairro" placeholder="Bairro" />
+        <span class="error-message" id="bairro-erro"></span>
+      </div>
+
+      <div class="campo">
+        <input type="text" id="referencia" placeholder="Ponto de referência" />
+      </div>
+
+      <button id="btnEntrega">Fazer Pedido para Entrega</button>
+    </div>
+
+    <div id="mensagem"></div>
+  </div>
+
+  <script src="peca-para-entregar.js"></script>
+</body>
+</html>

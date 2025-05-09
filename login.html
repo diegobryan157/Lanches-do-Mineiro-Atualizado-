@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Lanches do Mineiro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🍔 Login - Lanches do Mineiro</h1>
+    
+    <div class="login-box">
+      <input type="email" id="email" placeholder="Digite seu e-mail" />
+      <input type="password" id="senha" placeholder="Digite sua senha" />
+      <span id="mostrarSenha"></span>
+      <button onclick="logar()">Entrar</button>
+      <p id="mensagemErro"></p>
+    </div>
+
+    <div id="boasVindas" class="hidden">
+      <h2>Bem-vindo, <span id="usuarioNome"></span>!</h2>
+      <button onclick="sair()">Sair</button>
+    </div>
+  </div>
+
+  <script>
+    const emailInput = document.getElementById("email");
+    const senhaInput = document.getElementById("senha");
+    const mensagemErro = document.getElementById("mensagemErro");
+    const boasVindas = document.getElementById("boasVindas");
+    const usuarioNome = document.getElementById("usuarioNome");
+
+    function logar() {
+      const email = emailInput.value.trim();
+      const senha = senhaInput.value.trim();
+
+      if (!email || !senha) {
+        mensagemErro.textContent = "Preencha todos os campos!";
+        return;
+      }
+
+      const nome = email.split("@")[0];
+      usuarioNome.textContent = nome;
+      boasVindas.classList.remove("hidden");
+      document.querySelector(".login-box").classList.add("hidden");
+
+      localStorage.setItem("usuarioLogado", nome);
+    }
+
+    function sair() {
+      localStorage.removeItem("usuarioLogado");
+      boasVindas.classList.add("hidden");
+      document.querySelector(".login-box").classList.remove("hidden");
+      emailInput.value = "";
+      senhaInput.value = "";
+      mensagemErro.textContent = "";
+    }
+
+    // Mostrar senha
+    document.getElementById("mostrarSenha").onclick = () => {
+      senhaInput.type = senhaInput.type === "password" ? "text" : "password";
+    };
+
+    // Manter login se já estiver logado
+    window.onload = () => {
+      const usuario = localStorage.getItem("usuarioLogado");
+      if (usuario) {
+        usuarioNome.textContent = usuario;
+        boasVindas.classList.remove("hidden");
+        document.querySelector(".login-box").classList.add("hidden");
+      }
+    };
+  </script>
+</body>
+</html>

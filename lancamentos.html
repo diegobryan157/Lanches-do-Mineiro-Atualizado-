@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lançamentos - Lanches do Mineiro</title>
+  <link rel="stylesheet" href="lancamentos.css">
+</head>
+<body>
+
+  <h1>🌟 Lançamentos - Lanches do Mineiro</h1>
+
+  <div class="filtros">
+    <label for="categoria">Categoria: </label>
+    <select id="categoria">
+      <option value="todos">Todos</option>
+      <option value="novidades">Novidades</option>
+      <option value="promocoes">Promoções</option>
+    </select>
+
+    <input type="text" id="busca" placeholder="Buscar por nome">
+  </div>
+
+  <div class="lancamentos" id="lancamentos"></div>
+
+  <script src="lancamentos.js"></script>
+</body>
+</html>
